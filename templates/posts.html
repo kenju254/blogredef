@@ -1,0 +1,12 @@
+<html>
+	<head>
+		<title> Kenju254 Chronicles</title>
+	</head>
+	<body>
+		{% for post in posts%}
+		<h1><a href="/{{ post.slug }}">{{ post.title }}</a> </h1>
+		<h3>{{ post.pub_date}}</h3>
+		{{ post.text}}
+		{% endfor %}
+	</body>
+</html>
