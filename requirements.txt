@@ -1,5 +1,4 @@
 Django==1.4.3
-GnuPGInterface==0.3.2
 Landscape-Client==12.05
 Mako==0.7.1
 MarkupSafe==0.15
