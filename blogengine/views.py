@@ -18,7 +18,7 @@ def getPosts(request, selected_page=1):
         returned_page = pages.page(pages.num_pages)
     
     #Display all the posts
-    return render_to_response('posts.html', {'posts':returned_page.object_list})
+    return render_to_response('posts.html', {'posts':returned_page.object_list, 'page':returned_page})
 
 def getPost(request, postSlug):    
     #Get Specific Post
