@@ -25,5 +25,4 @@ def getPost(request, postSlug):
     post = Post.objects.filter(slug=postSlug)
     
     #Display specific post
-    return render_to_response('posts.html',{'posts': post})
-
+    return render_to_response('single.html',{'posts': post})
