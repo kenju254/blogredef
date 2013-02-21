@@ -1,0 +1,24 @@
+{% include 'header.html' %}
+		{% load comments%}
+		{% for post in posts %}
+		<h1><a href="{{ post.get.absolute_url}}">{{ post.title}} </a></h1>
+		{{ post.text}}
+		<h3> By {{ post.author.first_name }} {{ post.author.last_name }}</h3>
+		<h3>Categories: {% for category in post.categories.all %} {{ category.title}} {% endfor %}</h3>
+		<ol>
+			{% get_comment_list for post as comments%}
+			{% for comment in comments %}
+			<li>{{ comment }}</li>
+			{% endfor %}
+		</ol>
+		{% render_comment_form for post %}
+		{% endfor %}
+		
+		<br />
+		{% if page.has_previous %}
+		<a href="/{{ page.previous_page_number }}"> Previous Page</a>
+		{% endif %}
+		{% if page.has_next %}
+		<a href="/{{ page.next_page_number }}"> Next Page</a>
+		{% endif %}
+{% include 'footer.html' %}
