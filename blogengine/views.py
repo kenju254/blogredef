@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response
 from django.core.paginator import Paginator, EmptyPage
 from blogengine.models import Post, Category
 from django.template import RequestContext
+from django.contrib.syndication.views import Feed
 
 
 def getPosts(request, selected_page=1):
@@ -51,4 +52,15 @@ def getCategory(request, categorySlug, selected_page=1):
     #Display all the posts
     return render_to_response('category.html', {'posts':returned_page.object_list,'page':returned_page, 'category':category})
         
-     
+class PostsFeed(Feed):
+    title = "Kenju254 Chronicles posts"
+    link = "feeds/posts/"
+    description = "Posts from Kenju254 Chronicles"
+    
+    def item(self):
+        return Post.objects.order_by('-pub_date')[:5]
+    
+    
+    
+    
+         
