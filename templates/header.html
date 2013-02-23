@@ -2,6 +2,19 @@
 <html>
 	<head>
 		<title> Kenju254 Chronicles</title>
+		<link rel="stylesheet" type="text/css" href="/static/style.css"  />
 	</head>
 	<body>
-</html>
+		<div id="main">
+			<h1> Kenju254 chronicles</h1>
+			<a href="/feeds/posts"><img src="/static/rss.png" width="50px" height="50px"></a>
+			<ul id="pagelist">
+				<li><a href="/">Home</a></li>
+				{% load flatpages %}
+				{% get_flatpages as flatpages %}
+				{% for flatpage in flatpages %}
+				<li><a href="{{ flatpage.url}}">{{ flatpage.title }}</a></li>
+				{% endfor %}
+			</ul>
+			
+		

@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
 from blogengine.views import getPosts, getPost , getCategory , PostsFeed
+from django.views.generic import ListView
+from blogengine.views import Category
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -28,6 +30,9 @@ urlpatterns = patterns('',
     url(r'^feeds/posts/$', PostsFeed()),
     
     # Categories
+    url('^categories/?$', ListView.as_view(
+                                          model=Category,
+                                          )),
     url(r'^categories/(?P<categorySlug>\w+)/?$', getCategory),
     url(r'^categories/(?P<categorySlug>\w+)/(?P<selected_page>\d)?$', getCategory),
     
