@@ -173,7 +173,7 @@ LOGGING = {
 
 
 DISQUS_API_KEY = 'C9ljtL6O2PLEbNeGoQJQOOR6XiItRYujpYpKJyedq1W60wvaAWZ93IYgYt16dmFn'
-DISQUS_WEBSITE_SHORTNAME = 'foobar' 
+DISQUS_WEBSITE_SHORTNAME = 'kenju254' 
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
